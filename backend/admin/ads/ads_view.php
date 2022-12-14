@@ -11,16 +11,16 @@ include ('../layouts/sidebar.php');
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h4 class="m-b-10">VIEW MAIN MENU</h4>
+                            <h4 class="m-b-10">VIEW ADS</h4>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="../layouts/index.php"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="add_main_menu.php">Add Main Menu</a></li>
-                            <li class="breadcrumb-item"><a href="view_main_menu.php">View Main Menu</a></li>
+                            <li class="breadcrumb-item"><a href="add_main_menu.php">view ads</a></li>
+                            <li class="breadcrumb-item"><a href="view_main_menu.php">view ads</a></li>
                         </ul>
                         <br>
                         <div class="links">
-                            <a href="add_main_menu.php" class="btn btn-info">Add Main Menu</a>
+                            <a href="ads.php" class="btn btn-info">View ADS</a>
                         </div>
                     </div>
                 </div>

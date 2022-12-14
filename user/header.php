@@ -1,3 +1,8 @@
+<?php
+include('../database/connection.php');
+$db=new database();
+?>
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head>
@@ -75,11 +80,11 @@
                                 $sql=$db->link->query("SELECT * FROM `ads` WHERE `ads`=1");
                                if($sql)
                                {
-                                $show_data=$sql->$fetch_assoc();
+                                $show_data=$sql->fetch_assoc();
                                }
                                 
                                 ?>
-                                <img src="../assets/img/gallery/header_card.png" alt="">
+                                <img src="../backend/asset/img/ads/<?php echo $show_data['image'];?>" alt="">
                             </div>
                         </div>
                     </div>
