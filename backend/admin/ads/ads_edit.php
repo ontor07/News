@@ -78,6 +78,7 @@ include ('../layouts/sidebar.php');
                                     <div class="form-group">
                                         <label>Image</label>
                                         <input type="file" name="image" class="form-control" >
+                                        <img src="" alt="">
                                     </div>                                   
                                     <div class="form-group">
                                     <label>Top ADS</label>
