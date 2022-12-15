@@ -80,21 +80,26 @@ include ('../layouts/sidebar.php');
                                         <input type="file" name="image" class="form-control" >
                                     </div>                                   
                                     <div class="form-group">
-                                    <label>Top ADS</label>
+                                    
                                     <input value="1" class="" type="checkbox" name="ads">
-                                    
+                                    <label>Top ADS</label>
                                     
                                     </div> 
                                     <div class="form-group">
-                                     <label>Middle ADS</label>
+                                     
                                     <input value="2" class="" type="checkbox" name="ads">
-                                    
+                                    <label>Middle ADS</label>
                                    
                                     </div> 
                                     <div class="form-group">
-                                    <label>Footer ADS</label>
+                                    
                                     <input value="3" class="" type="checkbox" name="ads">
-                                   
+                                    <label>Footer ADS</label>
+                                    </div> 
+                                    <div class="form-group">
+                                    
+                                    <input value="4" class="" type="checkbox" name="ads">
+                                    <label>Cart ADS</label>
                                     </div>
                                     
                                     <div class="form-group" style="text-align: center !important;">

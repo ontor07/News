@@ -11,44 +11,31 @@ include('header.php');
                         <!-- Trending Top -->
                         <div class="slider-active">
                             <!-- Single -->
+                            <?php
+									$sql = $db->link->query("SELECT add_news.*,categories.categories,create_admin.username FROM `add_news`
+                                    `add_news` JOIN `categories` JOIN `create_admin` ON add_news.categories=categories.id AND add_news.publisher=create_admin.id WHERE `silder`='1' ORDER BY `id` DESC LIMIT 3");
+									if($sql)
+									{
+										while ($showdata = $sql->fetch_assoc())
+										{
+									?>
                             <div class="single-slider">
                                 <div class="trending-top mb-30">
                                     <div class="trend-top-img">
-                                        <img src="../assets/img/trending/trending_top2.jpg" alt="">
+                                        <img src="../backend/asset/img/news/<?php echo $showdata['image'];?>" alt="">
                                         <div class="trend-top-cap">
-                                            <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">Business</span>
-                                            <h2><a href="latest_news.php" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">Anna Lora Stuns In White At Her Australian Premiere</a></h2>
-                                            <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">by Alice cloe   -   Jun 19, 2020</p>
+                                            <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms"><?php echo $showdata['categories'];?></span>
+                                            <h2><a href="latest_news.php" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms"><?php echo $showdata['title'];?></a></h2>
+                                            <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">by <?php echo $showdata['username'];?>   -  <?php echo $showdata['date'];?></p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Single -->
-                            <div class="single-slider">
-                                <div class="trending-top mb-30">
-                                    <div class="trend-top-img">
-                                        <img src="../assets/img/trending/trending_top02.jpg" alt="">
-                                        <div class="trend-top-cap">
-                                            <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">Business</span>
-                                            <h2><a href="latest_news.php" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">Anna Lora Stuns In White At Her Australian Premiere</a></h2>
-                                            <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">by Alice cloe   -   Jun 19, 2020</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single -->
-                            <div class="single-slider">
-                                <div class="trending-top mb-30">
-                                    <div class="trend-top-img">
-                                        <img src="../assets/img/trending/trending_top03.jpg" alt="">
-                                        <div class="trend-top-cap">
-                                            <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">Business</span>
-                                            <h2><a href="latest_news.php" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">Anna Lora Stuns In White At Her Australian Premiere</a></h2>
-                                            <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">by Alice cloe   -   Jun 19, 2020</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php
+									}
+								}
+								?>
+                           
                         </div>
                     </div>
                     <!-- Right content -->
@@ -56,30 +43,51 @@ include('header.php');
                             <!-- Trending Top -->
                         <div class="row">
                             <div class="col-lg-12 col-md-6 col-sm-6">
+                            <?php
+									$sql = $db->link->query("SELECT add_news.*,categories.categories,create_admin.username FROM `add_news`
+                                    `add_news` JOIN `categories` JOIN `create_admin` ON add_news.categories=categories.id AND add_news.publisher=create_admin.id WHERE add_news.categories='14' ORDER BY `id` DESC LIMIT 1");
+									if($sql)
+									{
+										while ($showdata = $sql->fetch_assoc())
+										{
+									?>
                                 <div class="trending-top mb-30">
                                     <div class="trend-top-img">
-                                        <img src="../assets/img/trending/trending_top3.jpg" alt="">
+                                        <img src="../backend/asset/img/news/<?php echo $showdata['image'];?>" alt="">
                                         <div class="trend-top-cap trend-top-cap2">
-                                            <span class="bgb">FASHION</span>
-                                            <h2><a href="latest_news.html">Secretart for Economic Air
-                                                plane that looks like</a></h2>
-                                            <p>by Alice cloe   -   Jun 19, 2020</p>
+                                            <span class="bgb"><?php echo $showdata['categories'];?></span>
+                                            <h2><a href="latest_news.html"><?php echo $showdata['title'];?></a></h2>
+                                            <p>by <?php echo $showdata['username'];?>  -    <?php echo $showdata['date'];?></p>
                                         </div>
                                     </div>
                                 </div>
+                                <?php
+									}
+								}
+								?>
                             </div>
                             <div class="col-lg-12 col-md-6 col-sm-6">
+                            <?php
+									$sql = $db->link->query("SELECT add_news.*,categories.categories,create_admin.username FROM `add_news`
+                                    `add_news` JOIN `categories` JOIN `create_admin` ON add_news.categories=categories.id AND add_news.publisher=create_admin.id WHERE add_news.categories='13' ORDER BY `id` DESC LIMIT 1");
+									if($sql)
+									{
+										while ($showdata = $sql->fetch_assoc())
+										{
+									?>
                                 <div class="trending-top mb-30">
                                     <div class="trend-top-img">
-                                        <img src="../assets/img/trending/trending_top4.jpg" alt="">
+                                        <img src="../backend/asset/img/news/<?php echo $showdata['image'];?>" alt="">
                                         <div class="trend-top-cap trend-top-cap2">
-                                            <span class="bgg">TECH </span>
-                                            <h2><a href="latest_news.html">Secretart for Economic Air plane that looks like</a></h2>
-                                            <p>by Alice cloe   -   Jun 19, 2020</p>
+                                            <span class="bgb"><?php echo $showdata['categories'];?></span>
+                                            <h2><a href="latest_news.html"><?php echo $showdata['title'];?></a></h2>
+                                            <p>by <?php echo $showdata['username'];?>  -    <?php echo $showdata['date'];?></p>
                                         </div>
                                     </div>
                                 </div>
+                               
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -87,7 +95,10 @@ include('header.php');
         </div>
     </div>
     <!-- Trending Area End -->
-    <!-- Whats New Start -->
+    <!-- Whats New Start --> <?php
+									}
+								}
+								?>
     <section class="whats-news-area pt-50 pb-20 gray-bg">
         <div class="container">
             <div class="row">
@@ -124,11 +135,20 @@ include('header.php');
                                 <!-- card one -->
                                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">       
                                     <div class="row">
+                                        <?php
+                                        $sql = $db->link->query("SELECT add_news.*,categories.categories,create_admin.username FROM `add_news`
+                                        `add_news` JOIN `categories` JOIN `create_admin` ON add_news.categories=categories.id AND add_news.publisher=create_admin.id WHERE add_news.categories='11' ORDER BY `id` DESC LIMIT 1");
+                                        if($sql)
+                                        {
+                                            while ($showdata = $sql->fetch_assoc())
+                                            {
+                                        ?>
+                                    
                                         <!-- Left Details Caption -->
                                         <div class="col-xl-6 col-lg-12">
                                             <div class="whats-news-single mb-40 mb-40">
                                                 <div class="whates-img">
-                                                    <img src="../assets/img/gallery/whats_news_details1header-banner.png" alt="">
+                                                    <img src="../assets/img/gallery/1.png" alt="">
                                                 </div>
                                                 <div class="whates-caption">
                                                     <h4><a href="latest_news.html">Secretart for Economic Air plane that looks like</a></h4>
@@ -191,6 +211,10 @@ include('header.php');
                                                 </div>
                                             </div>
                                         </div>
+                                        <?php
+									}
+								}
+								?>
                                     </div>
                                 </div>
                                 <!-- Card two -->
@@ -492,7 +516,16 @@ include('header.php');
                 </div>
                 <!-- Banner -->
                 <div class="banner-one mt-20 mb-30">
-                    <img src="../assets/img/gallery/body_card1.png" alt="">
+                <?php
+                $sql=$db->link->query("SELECT * FROM `ads` WHERE `ads`=2");
+                if($sql)
+                {
+                $show_data=$sql->fetch_assoc();
+                }
+                
+                ?>
+                <img src="../backend/asset/img/ads/<?php echo $show_data['image'];?>" alt="">
+                    
                 </div>
                 </div>
                 <div class="col-lg-4">
@@ -589,7 +622,16 @@ include('header.php');
                     <!-- Banner -->
                     <div class="col-lg-3">
                         <div class="home-banner2 d-none d-lg-block">
-                            <img src="../assets/img/gallery/body_card2.png" alt="">
+                        <?php
+                            $sql=$db->link->query("SELECT * FROM `ads` WHERE `ads`=4");
+                            if($sql)
+                            {
+                            $show_data=$sql->fetch_assoc();
+                            }
+                            
+                        ?>
+                        <img src="../backend/asset/img/ads/<?php echo $show_data['image'];?>" alt="">
+                            
                         </div>
                     </div>
                     <div class="col-lg-9">
@@ -890,7 +932,16 @@ include('header.php');
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-md-10">
                     <div class="banner-one">
-                        <img src="../assets/img/gallery/body_card3.png" alt="">
+                    <?php
+                    $sql=$db->link->query("SELECT * FROM `ads` WHERE `ads`=3");
+                    if($sql)
+                    {
+                    $show_data=$sql->fetch_assoc();
+                    }
+                    
+                    ?>
+                    <img src="../backend/asset/img/ads/<?php echo $show_data['image'];?>" alt="">
+                      
                     </div>
                 </div>
             </div>

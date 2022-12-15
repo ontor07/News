@@ -31,6 +31,8 @@ if(!isset($_SESSION['email']))
 	
 	<link rel="stylesheet" href="../../assets/modules/bootstrap-daterangepicker/daterangepicker.css">
 	<link rel="stylesheet" href="../../assets/modules/summernote/summernote-bs4.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+	
 
 	<!-- include summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
