@@ -37,6 +37,7 @@
 <!-- datepicker start -->
 <script src="../../assets/modules/bootstrap-daterangepicker/daterangepicker.js"></script>
 <script src="../../assets/modules/summernote/summernote-bs4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js"></script>
 
 
 

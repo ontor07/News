@@ -19,7 +19,7 @@ include ('../layouts/sidebar.php');
                         </ul>
                         <br>
                         <div class="links">
-                            <a href="view_sub_menu.php" class="btn btn-info">View News</a>
+                            <a href="add_news_view.php" class="btn btn-info">View News</a>
                         </div>
                     </div>
                 </div>
@@ -43,15 +43,50 @@ include ('../layouts/sidebar.php');
                                     $date = $_POST['date']?$_POST['date']:'';
                                     $title = $_POST['title']?$_POST['title']:'';
                                     $description = $_POST['description']?$_POST['description']:'';
-                        
-                                    $sql = $db->link->query("INSERT INTO `add_news`(`categories`, `publisher`, `date`, `title`, `description`) VALUES ('$categories','$publisher','$date','$title','$description')");
-                                    if($sql)
+                                    
+
+                                    if(isset($_POST['slider']))
                                     {
-                                        echo "<div class='alert alert-success'>Data Insert Successfully</div>";
+                                        $slider = $_POST['slider'];
+                                        $sql = $db->link->query("INSERT INTO `add_news`(`categories`, `publisher`, `date`, `title`, `description`, `silder`) VALUES ('$categories','$publisher','$date','$title','$description','$slider')");
+                                        if($sql)
+                                        {
+                                            echo "<div class='alert alert-success'>Data Insert Successfully</div>";
+                                        }
+                                        else
+                                        {
+                                            echo "<div class='alert alert-danger'>Data Insert Unsuccessfllly</div>";
+                                        }
                                     }
                                     else
                                     {
-                                        echo "<div class='alert alert-danger'>Data Insert Unsuccessfllly</div>";
+                                        $sql = $db->link->query("INSERT INTO `add_news`(`categories`, `publisher`, `date`, `title`, `description`) VALUES ('$categories','$publisher','$date','$title','$description')");
+                                        if($sql)
+                                        {
+                                            echo "<div class='alert alert-success'>Data Insert Successfully</div>";
+                                        }
+                                        else
+                                        {
+                                            echo "<div class='alert alert-danger'>Data Insert Unsuccessfllly</div>";
+                                        } 
+                                    }
+                                    
+                                    
+                                    $file = $_FILES['image']['name'];
+                                    
+                                    if($file)
+                                    {
+                                        $id = $db->link->insert_id;
+                                        $extension = pathinfo($file, PATHINFO_EXTENSION);
+
+                                        $image_name = rand().'.'.$extension;
+
+                                        $image_path = '../../asset/img/news/'.$image_name;
+
+                                        move_uploaded_file($_FILES['image']['tmp_name'],$image_path);
+
+                                        $db->update('add_news',['image'=>$image_name],"id='$id'");
+
                                     }
                                 }
                                 ?>
@@ -104,6 +139,17 @@ include ('../layouts/sidebar.php');
                                         <label>News</label>
                                         <textarea name="description" class="form-control summernote" id="summernote"></textarea>
                                     </div>
+                                    <div class="form-group">
+                                        <label>Image</label>
+                                        <input type="file" class="form-control" name="image">
+                                    </div>
+                                    <div class="form-group">
+                                    
+                                    <input value="1" class="" type="checkbox" name="slider">
+                                    <label>Slider</label>
+                                    
+                                    
+                                    </div> 
                                     
                                     <div class="form-group" style="text-align: center !important;">
                                     <input type="submit" name="save" class="btn btn-primary" value="Submit">
